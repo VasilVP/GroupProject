@@ -10,6 +10,7 @@ namespace BlogSharpTeam
         {
             ConfigureAuth(app);
             // Borislav Nikolov Write Code.
+			//New Comment by Kiso.
         }
     }
 }
