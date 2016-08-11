@@ -9,8 +9,7 @@ namespace BlogSharpTeam
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            // Borislav Nikolov Write Code.
-			//New Comment by Kiso.
+            //Filed
         }
     }
 }
