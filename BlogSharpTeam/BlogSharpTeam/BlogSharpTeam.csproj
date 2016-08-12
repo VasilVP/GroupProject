@@ -215,6 +215,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\bobi.jpg" />
+    <Content Include="images\images.png" />
     <Content Include="images\kiso.jpg" />
     <Content Include="images\software-university-logo.png" />
     <Content Include="images\vasil.jpg" />
