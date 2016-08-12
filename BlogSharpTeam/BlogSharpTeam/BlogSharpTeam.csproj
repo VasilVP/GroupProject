@@ -214,6 +214,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\bobi.jpg" />
+    <Content Include="images\kiso.jpg" />
+    <Content Include="images\software-university-logo.png" />
+    <Content Include="images\vasil.jpg" />
+    <Content Include="images\vessos.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />

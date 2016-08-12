@@ -38,3 +38,9 @@ textarea {
     background-size: cover;
 }
 
+.div_contact{
+    border: 2px solid #ff0000;
+    padding: 5px;
+    background: #cec9c9;
+}
+
