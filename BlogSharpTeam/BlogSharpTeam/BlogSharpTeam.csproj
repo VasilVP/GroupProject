@@ -224,6 +224,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\bobi.jpg" />
+    <Content Include="images\contactus-background.jpg" />
+    <Content Include="images\contactUs.jpg" />
     <Content Include="images\images.png" />
     <Content Include="images\kiso.jpg" />
     <Content Include="images\software-university-logo.png" />
@@ -282,6 +284,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Fun\FunIndex.cshtml" />
+    <Content Include="Views\SideBar_Menu\Menu.cshtml" />
+    <Content Include="Views\SideBar_Menu\UserProfile.cshtml" />
+    <Content Include="Views\SideBar_Menu\MyPosts.cshtml" />
+    <Content Include="Views\SideBar_Menu\MyComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
