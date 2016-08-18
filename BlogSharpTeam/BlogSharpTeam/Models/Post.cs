@@ -20,7 +20,7 @@ namespace BlogSharpTeam.Models
         public string Body { get; set; }
 
         [Required]
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
 
         public ApplicationUser Author { get; set; }
     }
