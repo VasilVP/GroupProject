@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using BlogSharpTeam.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlogSharpTeam.Models
 {
@@ -22,6 +23,10 @@ namespace BlogSharpTeam.Models
         [Required]
         public DateTime Date { get; set; }
 
+        [ForeignKey("Author_Id")]
         public ApplicationUser Author { get; set; }
+
+        public string Author_Id { get; set; }
+
     }
 }
