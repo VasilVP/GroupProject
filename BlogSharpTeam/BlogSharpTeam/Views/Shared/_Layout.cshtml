@@ -14,9 +14,11 @@
         <div class="sidebar">
             <ul>
                 <li><a href="~/Views/SideBar_Menu/MenuSidebar.cshtml">Menu</a></li>
-                <li>User-Profile</li>
+                <li>@Html.ActionLink("User profile", "Index", "Manage")</li>
                 <li>@Html.ActionLink("Posts", "Index", "Posts")</li>
                 <li>@Html.ActionLink("New Post", "Create", "Posts")</li>
+                <li>Galery</li>
+                <li>Code Room</li>
                 <li>Comments</li>
             </ul>
         </div>
