@@ -30,19 +30,31 @@ namespace BlogSharpTeam.Controllers
 
                     if (r < 2)
                     {
-                        fruits[row, col] = "apple";
+                        fruits[row, col] = "Borisov-Istanbul";
                     }
-                    else if (r < 4)
+                    else if (r == 3)
                     {
-                        fruits[row, col] = "banana";
+                        fruits[row, col] = "Mestan-lubovnik";
                     }
-                    else if (r < 6)
+                    else if (r == 4)
                     {
-                        fruits[row, col] = "orange";
+                        fruits[row, col] = "peevski";
+                    }
+                    else if (r == 5)
+                    {
+                        fruits[row, col] = "prof-vuchkov";
+                    }
+                    else if (r == 6)
+                    {
+                        fruits[row, col] = "mestan";
+                    }
+                    else if (r == 6)
+                    {
+                        fruits[row, col] = "Zvetanov_kolaj1";
                     }
                     else if (r < 8)
                     {
-                        fruits[row, col] = "kiwi";
+                        fruits[row, col] = "mishka";
                     }
                     else
                     {
@@ -101,10 +113,10 @@ namespace BlogSharpTeam.Controllers
             {
                 var fruit = fruits[row, col];
 
-                if (fruit == "apple" || fruit == "banana" || fruit == "orange" || fruit == "kiwi")
+                if (fruit == "Borisov-Istanbul" || fruit == "Dogan" || fruit == "Mestan-lubvnik" || fruit == "mestan" || fruit == "mishka" || fruit == "peevski" || fruit == "prof-vuchkov" || fruit == "Zvetanov_kolaj1")
                 {
                     score++;
-                    fruits[row, col] = "empty";
+                    fruits[row, col] = "empty1";
 
                     if (score + dynamiteCount == 27)
                     {
