@@ -26,5 +26,18 @@ namespace BlogSharpTeam.Controllers
 
             return View();
         }
+
+        public ActionResult Menu()
+        {
+            ViewBag.Message = "Your menu page.";
+
+            return View();
+        }
+        public ActionResult Posts()
+        {
+            ViewBag.Message = "Your posts page.";
+
+            return View();
+        }
     }
 }

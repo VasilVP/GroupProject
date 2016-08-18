@@ -5,13 +5,13 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: auto;
-    padding-right: auto;
+    padding-left: inherit;
+    padding-right: inherit;
 }
 
 .body-content1 {
     padding-left: 15%;
-    padding-right: auto;
+    padding-right:inherit;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -25,6 +25,16 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+.post>h2, .post>div{
+    background: #EEA;
+    padding: 10px;
+    margin: 0;
+
+}
+
+.post>h2 {
+    margin-top: 15px;
 }
 
 .sidebar {

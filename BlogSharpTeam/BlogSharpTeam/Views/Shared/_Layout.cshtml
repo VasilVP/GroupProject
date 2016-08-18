@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Team#andFriends</title>
+    <title>@ViewBag.Title - Team#</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -13,9 +13,9 @@
     {
         <div class="sidebar">
             <ul>
-                <li><a href="~/Views/SideBar_Menu/Menu.cshtml">Menu</a></li>
+                <li><a href="~/Views/SideBar_Menu/MenuSidebar.cshtml">Menu</a></li>
                 <li>User-Profile</li>
-                <li>Post</li>
+                <li><a href="~/Views/Posts/Index.cshtml">Posts</a></li>
                 <li>Comments</li>
             </ul>
         </div>
@@ -47,7 +47,7 @@
         @RenderBody()
         <hr/>
         <footer>
-            <p>&copy; @DateTime.Now.Year - Blog Web Site by #Team students of SoftUni></p>
+            <p>&copy; @DateTime.Now.Year - Blog Web Site by #Team, students of SoftUni></p>
         </footer>
     </div>
 }
@@ -57,7 +57,7 @@ else
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Blog Web Site by #Team students of SoftUni</p>
+            <p>&copy; @DateTime.Now.Year - Blog Web Site by #Team, students of SoftUni</p>
         </footer>
     </div>
 }
