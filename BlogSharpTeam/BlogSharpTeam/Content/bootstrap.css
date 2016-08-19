@@ -4935,7 +4935,7 @@ a.list-group-item.active > .badge,
   font-weight: 200;
   line-height: 2.1428571435;
   /*color: inherit;*/
-  background-color: #DCDCDC;
+  background-color:transparent;
 }
 
 .jumbotron h1 {
@@ -6819,7 +6819,7 @@ td.visible-print {
     float: left;
     width: 20%;
     height: 100%;
-    background-color: #999;
+    background-color: aquamarine;
     color: white;
     font: 32px Lato;
     font-weight: 100;
@@ -6844,13 +6844,14 @@ td.visible-print {
     -webkit-transition-timing-function: linear;
     -webkit-transition-delay: 2.5s;
     font-weight: 300;
-}
+}              
 .single-menu-element:hover{
     font-weight: 900;
-    background-color:#d43f3a;
+    background-color: #ad771a;
     height: 40px;
     line-height: 32px;
     transition: background 0.7s ease, padding 0.5s linear;
+    border-radius: 6px;
     padding: 10px;
 }
 .wrapper{

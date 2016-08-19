@@ -1,5 +1,6 @@
 ﻿body {
-    background-color:#DCDCDC;/* #FFFFF0;*/
+    background-image:url("/images/background.png");    /*#DCDCDC; #FFFFF0;*/
+    background-size: 100%;
     padding-top: 50px;
     padding-bottom: 20px;
     
@@ -47,13 +48,13 @@ textarea {
     width: 15%;
     position: fixed;
     display: inline-block;
-    background: #594883;
+    background:#a7811c;
     background-size: cover;
     text-align: left;
 }
 
 .div_contact{
-    border: 2px solid #ff0000;
+    border: 2px solid darkgrey;
     padding: 5px;
     background: #cec9c9;
     
@@ -71,10 +72,6 @@ textarea {
 }
 
 .logo{
-    position: center;
+    position: relative;
     width: 100%;
-}
-.nav{
-    background-color: yelow;
-
 }
