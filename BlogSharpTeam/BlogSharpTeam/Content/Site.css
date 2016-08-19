@@ -42,13 +42,14 @@ textarea {
 }
 
 .sidebar {
+    border: 2px solid #808080;
     overflow:hidden;
     margin: 0 auto;
     min-height: 739px;
     width: 15%;
     position: fixed;
     display: inline-block;
-    background:#a7811c;
+    background-color:#FFFACD;
     background-size: cover;
     text-align: left;
 }
