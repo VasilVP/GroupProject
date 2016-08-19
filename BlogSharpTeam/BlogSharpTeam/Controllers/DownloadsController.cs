@@ -6,16 +6,12 @@ using System.Web.Mvc;
 
 namespace BlogSharpTeam.Controllers
 {
-    public class MenuController : Controller
+    public class DownloadsController : Controller
     {
-        // GET: Menu
-        
-        public ActionResult IndexMenu()
+        // GET: Downloads
+        public ActionResult DownloadsIndex()
         {
-
-
             return View();
         }
     }
-  
 }

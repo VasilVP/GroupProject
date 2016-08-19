@@ -15,13 +15,12 @@
             <aside class="sidebar">
                 <nav>
                     <ul>
-                        <li class="single-menu-element">@Html.ActionLink("Menu", "MenuIndex", "Menu")</li>
+                        <li class="single-menu-element">@Html.ActionLink("Menu", "IndexMenu", "Menu")</li>
                         <li class="single-menu-element">@Html.ActionLink("User profile", "Index", "Manage")</li>
                         <li class="single-menu-element">@Html.ActionLink("Posts", "Index", "Posts")</li>
                         <li class="single-menu-element">@Html.ActionLink("New Post", "Create", "Posts")</li>
-                        <li class="single-menu-element">Galery</li>
-                        <li class="single-menu-element">Code Room</li>
-                        <li class="single-menu-element">Comments</li>
+                        <li class="single-menu-element">@Html.ActionLink("Galery", "GaleryIndex", "Galery")</li>
+                        <li class="single-menu-element">@Html.ActionLink("Downloads", "DownloadsIndex", "Downloads")</li>
                     </ul>
                 </nav>
             </aside>
