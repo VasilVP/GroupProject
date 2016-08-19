@@ -12,15 +12,19 @@
     @if (User.Identity.IsAuthenticated)
     {
         <div class="sidebar">
-            <ul>
-                <li><a href="~/Views/SideBar_Menu/MenuSidebar.cshtml">Menu</a></li>
-                <li>@Html.ActionLink("User profile", "Index", "Manage")</li>
-                <li>@Html.ActionLink("Posts", "Index", "Posts")</li>
-                <li>@Html.ActionLink("New Post", "Create", "Posts")</li>
-                <li>Galery</li>
-                <li>Code Room</li>
-                <li>Comments</li>
-            </ul>
+            <aside class="sidebar">
+                <nav>
+                    <ul>
+                        <li class="single-menu-element">@Html.ActionLink("Menu", "MenuIndex", "Menu")</li>
+                        <li class="single-menu-element">@Html.ActionLink("User profile", "Index", "Manage")</li>
+                        <li class="single-menu-element">@Html.ActionLink("Posts", "Index", "Posts")</li>
+                        <li class="single-menu-element">@Html.ActionLink("New Post", "Create", "Posts")</li>
+                        <li class="single-menu-element">Galery</li>
+                        <li class="single-menu-element">Code Room</li>
+                        <li class="single-menu-element">Comments</li>
+                    </ul>
+                </nav>
+            </aside>
         </div>
     }
 <div class="navbar navbar-inverse navbar-fixed-top">

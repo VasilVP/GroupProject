@@ -148,7 +148,7 @@ namespace BlogSharpTeam.Controllers
             ViewBag.gameOver = gameOver;
             return View();
         }
-        public ActionResult Index()
+        public  ActionResult Index()
         {
             return View();
         }

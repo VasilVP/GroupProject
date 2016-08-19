@@ -3,7 +3,7 @@
 }
 
 <div class="jumbotron">
-    <img class="logo" src="~/images/Logo.jpg"  />
+    <img class="logo" src="~/images/Logo.jpg"/>
 </div>
 @model List<BlogSharpTeam.Models.Post>
 @foreach (var post in Model)
@@ -18,7 +18,7 @@
                     @:by<i>@post.Author.FullName (@post.Author.UserName)</i>
                 }
             </div>
-            <p>Post content comes here</p>
+            <p>Post content comes <span>here</span></p>
         </div>
     </div>
 }

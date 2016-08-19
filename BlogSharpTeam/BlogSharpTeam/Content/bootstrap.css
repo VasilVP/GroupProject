@@ -6815,3 +6815,54 @@ td.visible-print {
     display: none !important;
   }
 }
+.sidebar {
+    float: left;
+    width: 20%;
+    height: 100%;
+    background-color: #06C0AB;
+    color: white;
+    font: 32px Lato;
+    font-weight: 100;
+    text-align: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    padding-top: 5%;
+}
+
+.single-menu-element{
+    text-decoration: none;
+    color: white;
+    -moz-transition-property: font-weight;
+    -moz-tranzition-duration: 3s;
+    -moz-transition-timing-function: linear;
+    -moz-transition-delay: 2.5s;
+    -webkit-transition-property: font-weight;
+    -webkit-transition-delay: 3s;
+    -webkit-transition-duration: 3s;
+    -webkit-transition-timing-function: linear;
+    -webkit-transition-delay: 2.5s;
+    font-weight: 300;
+}
+.single-menu-element:hover{
+    font-weight: 900;
+    background-color: #019c8c;
+    height: 40px;
+    line-height: 32px;
+    transition: background 0.7s ease, padding 0.5s linear;
+      padding: 10px;
+}
+.wrapper{
+    overflow: hidden;
+    margin: 0 auto;
+    min-height: 739px;
+    width: 100%;
+    position: relative;
+    display: inline-block;
+}
+ul
+{
+    list-style-type: none;
+    font: 32px Lato;
+}
