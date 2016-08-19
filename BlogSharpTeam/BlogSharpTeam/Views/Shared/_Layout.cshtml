@@ -11,8 +11,7 @@
 <body>
     @if (User.Identity.IsAuthenticated)
     {
-        <div class="sidebar">
-            <aside class="sidebar">
+      <aside class="sidebar">
                 <nav>
                     <ul>
                         <li class="single-menu-element">@Html.ActionLink("Menu", "IndexMenu", "Menu")</li>
@@ -23,11 +22,9 @@
                         <li class="single-menu-element">@Html.ActionLink("Downloads", "DownloadsIndex", "Downloads")</li>
                     </ul>
                 </nav>
-            </aside>
-        </div>
+        </aside>
     }
 <div class="navbar navbar-inverse navbar-fixed-top">
-   
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
