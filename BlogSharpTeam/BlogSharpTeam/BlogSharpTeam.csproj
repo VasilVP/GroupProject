@@ -211,6 +211,7 @@
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\AplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -315,6 +316,7 @@
     <Content Include="Views\Menu\IndexMenu.cshtml" />
     <Content Include="Views\Galery\GaleryIndex.cshtml" />
     <Content Include="Views\Downloads\DownloadsIndex.cshtml" />
+    <Content Include="Views\Posts\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

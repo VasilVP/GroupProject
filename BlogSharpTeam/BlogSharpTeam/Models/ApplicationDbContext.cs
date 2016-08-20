@@ -19,5 +19,6 @@ namespace BlogSharpTeam.Models
         }
 
         public System.Data.Entity.DbSet<BlogSharpTeam.Models.Post> Posts { get; set; }
+        public IDbSet<Comment> Comments { get; set; }
     }
 }
