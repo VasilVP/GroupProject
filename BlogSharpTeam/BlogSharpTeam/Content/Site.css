@@ -1,8 +1,11 @@
 ﻿body {
     background-image:url("/images/background.png");    /*#DCDCDC; #FFFFF0;*/
     background-size: 100%;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
     padding-top: 50px;
     padding-bottom: 20px;
+
     
 
 }
