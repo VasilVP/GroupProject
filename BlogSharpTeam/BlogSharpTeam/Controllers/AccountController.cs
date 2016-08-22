@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BlogSharpTeam.Models;
 
-namespace Demo_Blog.Controllers
+namespace BlogSharpTeam.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -152,7 +152,7 @@ namespace Demo_Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.FullName, Email = model.Email,FullName = model.FullName};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

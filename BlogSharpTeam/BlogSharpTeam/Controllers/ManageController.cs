@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BlogSharpTeam.Models;
-using Demo_Blog.Controllers;
+using BlogSharpTeam.Controllers;
 
 namespace BlogSharpTeam.Controllers
 {
