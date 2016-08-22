@@ -121,39 +121,7 @@ namespace BlogSharpTeam.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        // GET: Posts/Comment/5
-       [Authorize]
-        public ActionResult Comment(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Post post = db.Posts.Find(id);
-            if (post == null)
-            {
-                return HttpNotFound();
-            }
-            return View(post);
-        }
 
-        // POST: Posts/Comment/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize]
-        public ActionResult Comment([Bind(Include = "Id,Title,Body,Date,Author_Id")] Post post)
-
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(post).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(post);
-        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

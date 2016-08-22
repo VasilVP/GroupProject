@@ -11,10 +11,6 @@ namespace BlogSharpTeam.Models
 {
     public class Post
     {
-        public Post()
-        {            
-            this.Comments = new HashSet<Comment>();
-        }
         [Key]
         public int Id { get; set; }
 
@@ -33,7 +29,6 @@ namespace BlogSharpTeam.Models
         public ApplicationUser Author { get; set; }
 
         public string Author_Id { get; set; }
-        
-        public virtual ICollection<Comment> Comments { get; set; }
+
     }
 }
