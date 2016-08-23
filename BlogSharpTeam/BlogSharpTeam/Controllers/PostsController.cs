@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BlogSharpTeam.Models;
+using Microsoft.AspNet.Identity;
 
 namespace BlogSharpTeam.Controllers
 {
@@ -17,7 +18,8 @@ namespace BlogSharpTeam.Controllers
         // GET: Posts
         public ActionResult Index()
         {
-            return View(db.Posts.ToList());
+            var post1 = db.Posts.Include(p => p.Author);
+            return View(post1);
         }
 
         // GET: Posts/Details/5
@@ -48,6 +50,10 @@ namespace BlogSharpTeam.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Title,Body")] Post post)
         {
+            string userId = User.Identity.GetUserId();
+            ApplicationUser ttt = db.Users.Single(a => a.Id == userId);
+            post.Author = ttt;
+            post.Author_Id = userId;
             if (ModelState.IsValid)
             {
                 db.Posts.Add(post);
