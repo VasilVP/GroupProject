@@ -9,8 +9,8 @@
 @foreach (var post in Model)
 {
     <div class="row">
-        <div class="col-md-4">
-            <h2>@post.Title</h2>
+        <div class="col-md-41">
+            <h2>@BlogSharpTeam.Classes.Utils.CutText(post.Title, 20)</h2>
             <div>
                 Posted on <i>@post.Date</i>
                 @if (post.Author != null)
@@ -18,7 +18,7 @@
                     @:by<i>@post.Author.FullName (@post.Author.UserName)</i>
                 }
             </div>
-            <p>Post content comes <span>here</span></p>
+            <p>@BlogSharpTeam.Classes.Utils.CutText(post.Body)</p>
         </div>
     </div>
 }
