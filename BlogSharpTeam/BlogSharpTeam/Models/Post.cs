@@ -23,6 +23,7 @@ namespace BlogSharpTeam.Models
         public string Title { get; set; }
 
         [Required]
+        [DataType(DataType.MultilineText)]
         public string Body { get; set; }
 
         [Required]
