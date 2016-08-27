@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\Utils.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\DownloadsController.cs" />
     <Compile Include="Controllers\FunController.cs" />
     <Compile Include="Controllers\GalleriesController.cs" />
@@ -211,7 +212,12 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\AplicationUser.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\Gallery.cs" />
+=======
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Comments\AddComment.cs" />
+>>>>>>> origin/master
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -317,11 +323,19 @@
     <Content Include="Views\Menu\IndexMenu.cshtml" />
     <Content Include="Views\Galery\Index.cshtml" />
     <Content Include="Views\Downloads\DownloadsIndex.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Galleries\Create.cshtml" />
     <Content Include="Views\Galleries\Delete.cshtml" />
     <Content Include="Views\Galleries\Details.cshtml" />
     <Content Include="Views\Galleries\Edit.cshtml" />
     <Content Include="Views\Galleries\Index.cshtml" />
+=======
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Delete.cshtml" />
+    <Content Include="Views\Comments\Details.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,6 +14,7 @@ namespace BlogSharpTeam.Models
         public Post()
         {
             this.Date = DateTime.Now;
+            this.Comments = new List<Comment>();
         }
         [Key]
         public int Id { get; set; }
@@ -26,6 +27,8 @@ namespace BlogSharpTeam.Models
         [DataType(DataType.MultilineText)]
         public string Body { get; set; }
 
+       
+
         [Required]
         public DateTime Date { get; set; }
        
@@ -34,6 +37,8 @@ namespace BlogSharpTeam.Models
         public ApplicationUser Author { get; set; }
 
         public string Author_Id { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
 
     }
 }
