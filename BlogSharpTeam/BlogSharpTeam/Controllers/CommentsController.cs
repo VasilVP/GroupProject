@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BlogSharpTeam.Models;
+using BlogSharpTeam.Models.Comments;
+using Microsoft.AspNet.Identity;
+
 
 namespace BlogSharpTeam.Controllers
 {
@@ -36,32 +39,41 @@ namespace BlogSharpTeam.Controllers
         }
 
         // GET: Comments/Create
-        [Authorize]
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            return View();
+            var model = new Models.Comments.AddComment();
+            model.PostId = id;
+
+            return View(model);
         }
 
         // POST: Comments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Text,Date")] Comment comment)
+        public ActionResult Create(AddComment comment)
         {
+            var newcomment = new Comment();
+            newcomment.Post = db.Posts.Find(comment.PostId);
+
+            var newauthor = db.Users.Find(User.Identity.GetUserId());
+           
+            newcomment.Author = newauthor;
+            newcomment.Text = comment.Text;
+            newcomment.Date = comment.Date;
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
+                db.Comments.Add(newcomment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(comment);
+
         }
 
         // GET: Comments/Edit/5
-        [Authorize(Roles ="Administrators")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,7 +92,6 @@ namespace BlogSharpTeam.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "Administrators")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Text,Date")] Comment comment)
         {
@@ -94,7 +105,6 @@ namespace BlogSharpTeam.Controllers
         }
 
         // GET: Comments/Delete/5
-        [Authorize(Roles = "Administrators")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -110,7 +120,6 @@ namespace BlogSharpTeam.Controllers
         }
 
         // POST: Comments/Delete/5
-        [Authorize(Roles = "Administrators")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

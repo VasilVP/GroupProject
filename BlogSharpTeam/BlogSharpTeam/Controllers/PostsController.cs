@@ -30,6 +30,7 @@ namespace BlogSharpTeam.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Post post = db.Posts.Find(id);
+            //this.Session.Add("lastPost", id);
             if (post == null)
             {
                 return HttpNotFound();

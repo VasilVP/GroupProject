@@ -23,11 +23,8 @@ namespace BlogSharpTeam.Models
 
         [Required]
         public Post Post { get; set; }
-
         
-        public Post Author { get; set; }
-
-        public ApplicationUser Author_Name { get; set; }
+        public ApplicationUser Author { get; set; }
 
         [Required]
         public DateTime Date { get; set; }

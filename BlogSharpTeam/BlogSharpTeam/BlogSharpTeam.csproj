@@ -213,6 +213,7 @@
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\AplicationUser.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Comments\AddComment.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
