@@ -5,7 +5,8 @@
     background-attachment:fixed;
     padding-top: 50px;
     padding-bottom: 20px;
-    text-shadow: 0.5px 0.5px #ffffff;
+    text-shadow: 0.5px 0.5px #000000;
+    
 }
 /*date form creation in View/post/create
     <div class="form-group">
@@ -93,11 +94,10 @@ textarea {
     padding-left: 15px;
     width: 33.33333333333333%;
     float: left;
-    font-style:#FFFACD, italic;
-    font-family: 'Baskerville Old Face';
+    font-family: 'Baskerville Old Face' ;
     
 }
 
 .picasa{
-    font-style: #4cff00;
+    font-style:#4cff00;
 }
