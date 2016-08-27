@@ -19,5 +19,7 @@ namespace BlogSharpTeam.Models
         }
 
         public System.Data.Entity.DbSet<BlogSharpTeam.Models.Post> Posts { get; set; }
+
+        public DbSet<Gallery> Galleries { get; set; }
     }
 }
