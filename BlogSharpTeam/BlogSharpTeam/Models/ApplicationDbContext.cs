@@ -19,11 +19,11 @@ namespace BlogSharpTeam.Models
         }
 
         public System.Data.Entity.DbSet<BlogSharpTeam.Models.Post> Posts { get; set; }
-<<<<<<< HEAD
+
 
         public DbSet<Gallery> Galleries { get; set; }
-=======
+
         public DbSet<Comment> Comments { get; set; }
->>>>>>> origin/master
+     origin/master
     }
 }
