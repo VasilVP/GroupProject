@@ -16,10 +16,34 @@ namespace BlogSharpTeam.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Posts
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            var post1 = db.Posts.Include(p => p.Author);
-            return View(post1);
+            ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "Title_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var post1 = from p in db.Posts.Include(p => p.Author) select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                post1 = post1.Where(p => p.Title.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "Title_desc":
+                    post1 = post1.OrderByDescending(p => p.Title);
+                    break;
+                case "Date":
+                    post1 = post1.OrderBy(p => p.Date);
+                    break;
+                case "date_desc":
+                    post1 = post1.OrderByDescending(p => p.Date);
+                    break;
+                default:
+                    post1 = post1.OrderBy(p => p.Title);
+                    break;
+            }
+
+            return View(post1.ToList());
         }
 
         // GET: Posts/Details/5
