@@ -80,6 +80,8 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
+            
             Comment comment = db.Comments.Find(id);
             if (comment == null)
             {
@@ -95,6 +97,8 @@ namespace BlogSharpTeam.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Text,Date")] Comment comment)
         {
+           
+
             if (ModelState.IsValid)
             {
                 db.Entry(comment).State = EntityState.Modified;

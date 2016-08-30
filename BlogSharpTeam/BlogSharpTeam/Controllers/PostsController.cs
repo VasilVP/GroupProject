@@ -59,7 +59,9 @@ namespace BlogSharpTeam.Controllers
             {
                 return HttpNotFound();
             }
-            return View(post);
+            var postId = db.Posts.Include(p => p.Comments).Single(a => a.Id == id);
+            
+            return View(postId);
         }
         [Authorize]
         // GET: Posts/Create
