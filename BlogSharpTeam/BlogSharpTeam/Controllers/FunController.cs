@@ -156,7 +156,7 @@ namespace BlogSharpTeam.Controllers
             ViewBag.dynamiteCount = dynamiteCount;
             ViewBag.victory = victory;
             ViewBag.gameOver = gameOver;
-            ViewBag.AllUsers = db.Users.OrderByDescending(u => u.TotalScore > 0).ToList();
+            ViewBag.AllUsers = db.Users.OrderByDescending(u => u.TotalScore).ToList();
 
             return View();
         }
