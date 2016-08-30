@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BlogSharpTeam.Models;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,7 @@ namespace BlogSharpTeam.Controllers
 {
     public class FunController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         // GET: Fun
         static int rowsCount = 3;
         static int colsCount = 9;
@@ -113,7 +116,7 @@ namespace BlogSharpTeam.Controllers
             {
                 var fruit = fruits[row, col];
 
-                if (fruit == "Borisov-Istanbul" || fruit == "Dogan" || fruit == "Mestan-lubvnik" || fruit == "mestan" || fruit == "mishka" || fruit == "peevski" || fruit == "prof-vuchkov" || fruit == "Zvetanov_kolaj1")
+                if (fruit == "Borisov-Istanbul" || fruit == "Dogan" || fruit == "Mestan-lubovnik" || fruit == "mestan" || fruit == "mishka" || fruit == "peevski" || fruit == "prof-vuchkov" || fruit == "Zvetanov_kolaj1")
                 {
                     score++;
                     fruits[row, col] = "empty1";
@@ -121,6 +124,13 @@ namespace BlogSharpTeam.Controllers
                     if (score + dynamiteCount == 27)
                     {
                         victory = true;
+                        var userData = db.Users.Find(User.Identity.GetUserId());
+
+                        if (userData != null)
+                        {
+                            userData.TotalScore += score;
+                            db.SaveChanges();
+                        }
                     }
 
                     break;
@@ -146,6 +156,8 @@ namespace BlogSharpTeam.Controllers
             ViewBag.dynamiteCount = dynamiteCount;
             ViewBag.victory = victory;
             ViewBag.gameOver = gameOver;
+            ViewBag.AllUsers = db.Users.OrderByDescending(u => u.TotalScore > 0).ToList();
+
             return View();
         }
         public  ActionResult Index()

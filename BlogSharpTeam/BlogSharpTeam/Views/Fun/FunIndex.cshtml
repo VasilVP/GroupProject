@@ -1,4 +1,6 @@
-﻿@{
+﻿@using BlogSharpTeam.Models;
+
+@{
     ViewBag.Title = "Game Play";
 }
 
@@ -44,4 +46,17 @@ else
         <br />
     }
     <h2>Score: <b>@ViewBag.score</b></h2>
+}
+
+<h3>Users Highscore</h3>
+
+@if (ViewBag.AllUsers != null)
+{
+    foreach (ApplicationUser user in (List<ApplicationUser>)ViewBag.AllUsers)
+    {
+        if (user.TotalScore > 0)
+        {
+            <p>@Html.Raw(user.FullName) : @Html.Raw(user.TotalScore)</p>
+        }
+    }
 }
