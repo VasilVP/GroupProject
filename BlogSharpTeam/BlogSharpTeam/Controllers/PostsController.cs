@@ -65,8 +65,9 @@ namespace BlogSharpTeam.Controllers
             var postId = db.Posts.Include(p => p.Comments).Single(a => a.Id == id);
             string userfullname = User.Identity.GetUserName();
             string userId = User.Identity.GetUserId();
-            ApplicationUser ttt = db.Users.Single(a => a.Id == userId);
-            comment.Author = ttt;
+            //ApplicationUser ttt = db.Users.Single(a => a.Id == userId);
+            //comment.Author = ttt;
+            comment.Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
 
             return View(postId);
         }
@@ -99,32 +100,30 @@ namespace BlogSharpTeam.Controllers
 
             return View(post);
         }
-        [Authorize]
-        [Authorize(Roles = "Administrators")]
         // GET: Posts/Edit/5
+        [Authorize]
+              
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            Post post = db.Posts.Find(id);
-
-            if (post == null)
+            Post post = db.Posts.Include(p=>p.Author).SingleOrDefault(p=>p.Id==id);
+           
+            if (post == null ||(!User.IsInRole("Administrators") && post.Author.UserName!=User.Identity.Name))
             {
                 return HttpNotFound();
             }
 
             return View(post);
         }
-        [Authorize(Roles = "Administrators")]
         // POST: Posts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.                
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrators")]
+        [Authorize]
         [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "Id,Title,Body,Date,Author_Id")] Post post)
 
@@ -138,8 +137,8 @@ namespace BlogSharpTeam.Controllers
 
             return View(post);
         }
-        [Authorize(Roles = "Administrators")]
         // GET: Posts/Delete/5
+        [Authorize]        
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -147,17 +146,17 @@ namespace BlogSharpTeam.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Post post = db.Posts.Find(id);
+            Post post = db.Posts.Include(p => p.Author).SingleOrDefault(p => p.Id == id);
 
-            if (post == null)
+            if (post == null || (!User.IsInRole("Administrators") && post.Author.UserName != User.Identity.Name))
             {
                 return HttpNotFound();
             }
 
             return View(post);
         }
-        [Authorize(Roles = "Administrators")]
         // POST: Posts/Delete/5
+        [Authorize]        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
