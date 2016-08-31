@@ -101,8 +101,7 @@ namespace BlogSharpTeam.Controllers
             return View(post);
         }
         // GET: Posts/Edit/5
-        [Authorize]
-              
+        [Authorize]             
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -125,9 +124,13 @@ namespace BlogSharpTeam.Controllers
         [ValidateAntiForgeryToken]
         [Authorize]
         [ValidateInput(false)]
-        public ActionResult Edit([Bind(Include = "Id,Title,Body,Date,Author_Id")] Post post)
+        public ActionResult Edit([Bind(Include = "Id,Title,Body,Date,Author_Id,FullName")] Post post)
 
         {
+            string userId = User.Identity.GetUserId();
+            ApplicationUser ttt = db.Users.Single(a => a.Id == userId);
+            post.Author = ttt;
+            post.Author_Id = userId;
             if (ModelState.IsValid)
             {
                 db.Entry(post).State = EntityState.Modified;
