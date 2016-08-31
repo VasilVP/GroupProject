@@ -30,11 +30,14 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Comment comment = db.Comments.Find(id);
+
             if (comment == null)
             {
                 return HttpNotFound();
             }
+
             return View(comment);
         }
 
@@ -62,6 +65,7 @@ namespace BlogSharpTeam.Controllers
             newcomment.Author = newauthor;
             newcomment.Text = comment.Text;
             newcomment.Date = comment.Date;
+
             if (ModelState.IsValid)
             {
                 db.Comments.Add(newcomment);
@@ -84,9 +88,11 @@ namespace BlogSharpTeam.Controllers
             
             Comment comment = db.Comments.Find(id);
             if (comment == null)
+
             {
                 return HttpNotFound();
             }
+
             return View(comment);
         }
 
@@ -105,6 +111,7 @@ namespace BlogSharpTeam.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(comment);
         }
 
@@ -115,11 +122,14 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Comment comment = db.Comments.Find(id);
+
             if (comment == null)
             {
                 return HttpNotFound();
             }
+
             return View(comment);
         }
 
@@ -131,6 +141,7 @@ namespace BlogSharpTeam.Controllers
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
@@ -140,6 +151,7 @@ namespace BlogSharpTeam.Controllers
             {
                 db.Dispose();
             }
+
             base.Dispose(disposing);
         }
     }

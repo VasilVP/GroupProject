@@ -28,11 +28,14 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Gallery gallery = db.Galleries.Find(id);
+
             if (gallery == null)
             {
                 return HttpNotFound();
             }
+
             return View(gallery);
         }
 
@@ -68,11 +71,14 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Gallery gallery = db.Galleries.Find(id);
+
             if (gallery == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.Author_Id = new SelectList(db.Galleries, "Id", "FullName", gallery.Author_Id);
             return View(gallery);
         }
@@ -90,6 +96,7 @@ namespace BlogSharpTeam.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.Author_Id = new SelectList(db.Galleries, "Id", "FullName", gallery.Author_Id);
             return View(gallery);
         }
@@ -101,11 +108,14 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Gallery gallery = db.Galleries.Find(id);
+
             if (gallery == null)
             {
                 return HttpNotFound();
             }
+
             return View(gallery);
         }
 
