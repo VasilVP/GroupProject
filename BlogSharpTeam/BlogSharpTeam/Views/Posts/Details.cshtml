@@ -40,19 +40,24 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index") |
     @Html.ActionLink("Comment", "Create", "Comments", new { id = Model.Id }, null)
-    
+
 </p>
 <hr />
 @foreach (var comment in Model.Comments)
 {
     <dl class="dl-horizontal">
-        
-            <dt>Date</dt>
-            <dd>@comment.Date</dd>
-            <dt>Author</dt>
-            <dd>@Html.DisplayFor(modelItem => comment.Author.FullName)</dd>
-            <dt>Comment</dt>
-            <dd>@comment.Text</dd>
-        
+
+        <dt>Date</dt>
+        <dd>@comment.Date</dd>
+        <dt>Author</dt>
+        <dd>@Html.DisplayFor(modelItem => comment.Author.FullName)</dd>
+        <dt>Comment</dt>
+        <dd>@comment.Text</dd>
+
     </dl>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index") |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) )
+    </p>
 }
