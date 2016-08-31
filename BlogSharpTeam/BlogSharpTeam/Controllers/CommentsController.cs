@@ -57,18 +57,18 @@ namespace BlogSharpTeam.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(AddComment comment)
         {
-            var newcomment = new Comment();
-            newcomment.Post = db.Posts.Find(comment.PostId);
+            var newComment = new Comment();
+            newComment.Post = db.Posts.Find(comment.PostId);
 
             var newauthor = db.Users.Find(User.Identity.GetUserId());
            
-            newcomment.Author = newauthor;
-            newcomment.Text = comment.Text;
-            newcomment.Date = comment.Date;
+            newComment.Author = newauthor;
+            newComment.Text = comment.Text;
+            newComment.Date = comment.Date;
 
             if (ModelState.IsValid)
             {
-                db.Comments.Add(newcomment);
+                db.Comments.Add(newComment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
