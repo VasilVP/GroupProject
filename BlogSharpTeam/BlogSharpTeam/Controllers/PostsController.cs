@@ -47,7 +47,7 @@ namespace BlogSharpTeam.Controllers
         }
 
         // GET: Posts/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id ,Comment comment)
         {
             if (id == null)
             {
@@ -60,7 +60,11 @@ namespace BlogSharpTeam.Controllers
                 return HttpNotFound();
             }
             var postId = db.Posts.Include(p => p.Comments).Single(a => a.Id == id);
-            
+            string userfullname = User.Identity.GetUserName();
+            string userId = User.Identity.GetUserId();
+            ApplicationUser ttt = db.Users.Single(a => a.Id == userId);
+            comment.Author = ttt;
+
             return View(postId);
         }
         [Authorize]

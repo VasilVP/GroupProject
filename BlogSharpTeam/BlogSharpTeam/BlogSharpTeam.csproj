@@ -318,7 +318,7 @@
     <Content Include="Views\Posts\Details.cshtml" />
     <Content Include="Views\Posts\Edit.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
-    <Content Include="Views\Menu\IndexMenu.cshtml" />
+    <Content Include="Views\Manage\IndexMenu.cshtml" />
     <Content Include="Views\Downloads\DownloadsIndex.cshtml" />
     <Content Include="Views\Galleries\Create.cshtml" />
     <Content Include="Views\Galleries\Delete.cshtml" />
@@ -333,6 +333,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Menu\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

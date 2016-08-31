@@ -7,9 +7,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BlogSharpTeam.Models;
+using System.Web.Routing;
 using BlogSharpTeam.Models.Comments;
 using Microsoft.AspNet.Identity;
-
+using System.Web.UI.WebControls;
 
 namespace BlogSharpTeam.Controllers
 {
@@ -58,15 +59,17 @@ namespace BlogSharpTeam.Controllers
             newcomment.Post = db.Posts.Find(comment.PostId);
 
             var newauthor = db.Users.Find(User.Identity.GetUserId());
-           
+
             newcomment.Author = newauthor;
             newcomment.Text = comment.Text;
             newcomment.Date = comment.Date;
+            string curentid = comment.PostId.ToString();
+  
             if (ModelState.IsValid)
             {
                 db.Comments.Add(newcomment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Posts");
             }
 
             return View(comment);
@@ -80,8 +83,8 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
-            
+
+
             Comment comment = db.Comments.Find(id);
             if (comment == null)
             {
@@ -97,7 +100,7 @@ namespace BlogSharpTeam.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Text,Date")] Comment comment)
         {
-           
+
 
             if (ModelState.IsValid)
             {

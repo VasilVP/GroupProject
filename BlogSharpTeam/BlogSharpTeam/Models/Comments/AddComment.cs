@@ -8,6 +8,10 @@ namespace BlogSharpTeam.Models.Comments
 {
     public class AddComment
     {
+        public AddComment()
+        {
+            this.Date = DateTime.Now;
+        }
         public int PostId { get; set; }
 
         public string Text { get; set; }
@@ -15,7 +19,7 @@ namespace BlogSharpTeam.Models.Comments
         public string AuthorId  { get; set; }
 
         [Required]
-        [DataType(DataType.DateTime)]
+        
         public DateTime Date { get; set; }
     }
 }

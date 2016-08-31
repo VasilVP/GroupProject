@@ -45,12 +45,15 @@
 <hr />
 @foreach (var comment in Model.Comments)
 {
-    <table>
-        <tr>
-            <td>@comment.Date</td>
-            <td>@comment.Author</td>
-            <td>@comment.Text</td>
-        </tr>
-    </table>
+    <dl class="dl-horizontal">
+        
+            <dt>Date</dt>
+            <dd>@comment.Date</dd>
+            <dt>Author</dt>
+            <dd>@Html.DisplayFor(modelItem => comment.Author.FullName)</dd>
+            <dt>Comment</dt>
+            <dd>@comment.Text</dd>
+        
+    </dl>
 
 }
