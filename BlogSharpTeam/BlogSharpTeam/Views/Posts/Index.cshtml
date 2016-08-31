@@ -54,7 +54,7 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @BlogSharpTeam.Classes.Utils.CutText(item.Body);
+            @(Html.Raw(item.Body));
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)

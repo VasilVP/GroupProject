@@ -18,7 +18,7 @@
                     @:by<i>@post.Author.FullName (@post.Author.UserName)</i>
                 }
             </div>
-            <p>@BlogSharpTeam.Classes.Utils.CutText(post.Body)</p>
+            <p>@(Html.Raw(post.Body))</p>
         </div>
     </div>
 }

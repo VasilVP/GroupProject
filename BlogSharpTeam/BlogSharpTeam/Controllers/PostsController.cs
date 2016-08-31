@@ -47,7 +47,7 @@ namespace BlogSharpTeam.Controllers
         }
 
         // GET: Posts/Details/5
-        public ActionResult Details(int? id ,Comment comment)
+        public ActionResult Details(int? id, Comment comment)
         {
             if (id == null)
             {
