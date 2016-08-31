@@ -18,7 +18,7 @@ namespace BlogSharpTeam.Models.Comments
 
         public string AuthorId  { get; set; }
 
-        [Required]
+        
         
         public DateTime Date { get; set; }
     }

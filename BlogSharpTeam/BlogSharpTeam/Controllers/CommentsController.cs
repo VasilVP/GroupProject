@@ -31,11 +31,14 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Comment comment = db.Comments.Find(id);
+
             if (comment == null)
             {
                 return HttpNotFound();
             }
+
             return View(comment);
         }
 
@@ -55,19 +58,17 @@ namespace BlogSharpTeam.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(AddComment comment)
         {
-            var newcomment = new Comment();
-            newcomment.Post = db.Posts.Find(comment.PostId);
+            var newComment = new Comment();
+            newComment.Post = db.Posts.Find(comment.PostId);
 
             var newauthor = db.Users.Find(User.Identity.GetUserId());
-
-            newcomment.Author = newauthor;
-            newcomment.Text = comment.Text;
-            newcomment.Date = comment.Date;
-            string curentid = comment.PostId.ToString();
-  
+            newComment.Author = newauthor;
+            newComment.Text = comment.Text;
+            newComment.Date = comment.Date;
+            string curentid = comment.PostId.ToString();         
             if (ModelState.IsValid)
             {
-                db.Comments.Add(newcomment);
+                db.Comments.Add(newComment);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Posts");
             }
@@ -87,9 +88,11 @@ namespace BlogSharpTeam.Controllers
 
             Comment comment = db.Comments.Find(id);
             if (comment == null)
+
             {
                 return HttpNotFound();
             }
+
             return View(comment);
         }
 
@@ -108,6 +111,7 @@ namespace BlogSharpTeam.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(comment);
         }
 
@@ -118,11 +122,14 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Comment comment = db.Comments.Find(id);
+
             if (comment == null)
             {
                 return HttpNotFound();
             }
+
             return View(comment);
         }
 
@@ -134,6 +141,7 @@ namespace BlogSharpTeam.Controllers
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
@@ -143,6 +151,7 @@ namespace BlogSharpTeam.Controllers
             {
                 db.Dispose();
             }
+
             base.Dispose(disposing);
         }
     }

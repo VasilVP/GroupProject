@@ -53,12 +53,15 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Post post = db.Posts.Find(id);
+
             //this.Session.Add("lastPost", id);
             if (post == null)
             {
                 return HttpNotFound();
             }
+
             var postId = db.Posts.Include(p => p.Comments).Single(a => a.Id == id);
             string userfullname = User.Identity.GetUserName();
             string userId = User.Identity.GetUserId();
@@ -73,6 +76,7 @@ namespace BlogSharpTeam.Controllers
         {
             return View();
         }
+
         [Authorize]
         // POST: Posts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -85,6 +89,7 @@ namespace BlogSharpTeam.Controllers
             ApplicationUser ttt = db.Users.Single(a => a.Id == userId);
             post.Author = ttt;
             post.Author_Id = userId;
+
             if (ModelState.IsValid)
             {
                 db.Posts.Add(post);
@@ -103,11 +108,14 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Post post = db.Posts.Find(id);
+
             if (post == null)
             {
                 return HttpNotFound();
             }
+
             return View(post);
         }
         [Authorize(Roles = "Administrators")]
@@ -127,6 +135,7 @@ namespace BlogSharpTeam.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(post);
         }
         [Authorize(Roles = "Administrators")]
@@ -137,11 +146,14 @@ namespace BlogSharpTeam.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Post post = db.Posts.Find(id);
+
             if (post == null)
             {
                 return HttpNotFound();
             }
+
             return View(post);
         }
         [Authorize(Roles = "Administrators")]
@@ -155,14 +167,14 @@ namespace BlogSharpTeam.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-     
-       
+            
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
                 db.Dispose();
             }
+
             base.Dispose(disposing);
         }
     }
